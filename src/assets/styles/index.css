@@ -1,16 +1,12 @@
-/*
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
-*/
-/*
-@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
-*/
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 * {
   box-sizing: border-box;
   text-decoration: none;
 }
 body {
-  font-family: 'Lexend Deca', sans-serif;
-  background-color: white;
-  width: 100vw;
-  height: 100vh;
+  background-color: #E5E5E5;
+  width: 375px;
+  height: 667px;
 }

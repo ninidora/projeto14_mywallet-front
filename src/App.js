@@ -6,7 +6,7 @@ import React, {useState} from 'react';
 import './assets/styles/reset.css';
 import './assets/styles/index.css';
 
-//import 'page00' from ./Page00.js ...
+import SignIn from './00_SignIn/SignIn.js';
 //import 'page01' from ...
 
 export default function App() {
@@ -16,7 +16,7 @@ export default function App() {
       <Switch>
         {/* <Context.Provider value={{ var, func}} > */}
           <Route exact path="/">
-            {/* <Page00 /> */}foi?
+            <SignIn />
           </Route>
 
     

@@ -5,10 +5,10 @@ import React, { useContext, useState } from 'react';
 //import LoggedUserContext from '../contexts/LoggedUserContext';
 
 
-//import {  } from "./styles_Page00.js";
+import { SCLoginContainer, SCSignInForm, SCFormInput, SCWideButton, SCSubmitButton } from "./styles_SignIn.js";
 
 
-export default function Page00() {
+export default function SignIn() {
     //const { userInfo, setUserInfo } = useContext(LoggedUserContext);
     //const history = useHistory();
     //const [localData, setLocalData] = useState({ email: "", password: "" });
@@ -35,11 +35,26 @@ export default function Page00() {
     }
     */
     return (
-        <>
-            {/* <Logo src={TrackItLogo} /> */}
+        <SCLoginContainer>
+            <h1>MyWallet</h1>
 
-            <LoginFields onSubmit={SignInUser} >
-                <InputField required type="text" placeholder="email" value={localData.email} onChange={(event) => setLocalData({ ...localData, email: event.target.value })} />
+            <SCSignInForm>
+                <SCFormInput required type="text" placeholder="E-mail" />
+                <SCFormInput required type="password" placeholder="Senha" />
+                <SCWideButton>
+                    <SCSubmitButton type="submit">
+                        <p>Entrar</p>
+                    </SCSubmitButton>
+
+                </SCWideButton>
+                <SCWideButton>
+                    <p>Primeira vez? Cadastre-se</p>
+                </SCWideButton>
+
+            </SCSignInForm>
+
+
+            {/* <InputField required type="text" placeholder="email" value={localData.email} onChange={(event) => setLocalData({ ...localData, email: event.target.value })} />
 
                 <WideButton>
                     <SignInButton type="submit" >
@@ -53,8 +68,7 @@ export default function Page00() {
                         </p>
                     </Link></SignUpButton>
                     <h3>{isLoading ? 'loading...' : ""}</h3>
-                </WideButton>
-            </LoginFields>
-        </>
+                </WideButton> */}
+        </SCLoginContainer>
     );
 }
