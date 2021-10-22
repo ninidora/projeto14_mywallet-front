@@ -1,7 +1,7 @@
 import '../assets/styles/index.css';
 import styled from 'styled-components';
 
-const SCLoginContainer = styled.div`
+const SCMainContainer = styled.div`
     width: 95vw;
     height: 95vh;
     display: flex;
@@ -9,9 +9,14 @@ const SCLoginContainer = styled.div`
     flex-direction: column;
     align-items: center;
     background-color: #8C11BE;
+`;
+
+const SCLettering = styled.div`
+    height: 50px;
+    margin: auto auto 24px auto;
+    display: flex;
     
     & h1 {
-        margin: 159px auto 24px auto;
         font-family: 'Saira Stencil One', cursive;
         font-style: normal;
         font-weight: normal;
@@ -20,6 +25,7 @@ const SCLoginContainer = styled.div`
         color: #FFFFFF;
     }
 `;
+
 
 const SCSignInForm = styled.form`
     width: 90%;
@@ -46,6 +52,7 @@ const SCFormInput = styled.input`
 
 const SCWideButton = styled.div`
     display: flex;
+    height: 58px;
     & p {        
         margin: auto;
         color: #FFFFFF;
@@ -67,4 +74,4 @@ const SCSubmitButton = styled.button`
     border: none;
 `;
 
-export { SCLoginContainer, SCSignInForm, SCFormInput, SCWideButton, SCSubmitButton };
+export { SCMainContainer, SCLettering, SCSignInForm, SCFormInput, SCWideButton, SCSubmitButton };

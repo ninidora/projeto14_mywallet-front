@@ -4,8 +4,7 @@ import axios from 'axios';
 import React, { useContext, useState } from 'react';
 //import LoggedUserContext from '../contexts/LoggedUserContext';
 
-
-import { SCMainContainer, SCLettering, SCSignInForm, SCFormInput, SCWideButton, SCSubmitButton } from "./styles_SignIn.js";
+import { SCMainContainer, SCLettering, SCSignInForm, SCFormInput, SCWideButton, SCSubmitButton } from "../00_SignIn/styles_SignIn.js";
 
 
 export default function SignIn() {
@@ -41,16 +40,18 @@ export default function SignIn() {
             </SCLettering>
 
             <SCSignInForm>
+                <SCFormInput required type="text" placeholder="Nome" />
                 <SCFormInput required type="text" placeholder="E-mail" />
                 <SCFormInput required type="password" placeholder="Senha" />
+                <SCFormInput required type="password" placeholder="Confirme a senha" />
                 <SCWideButton>
                     <SCSubmitButton type="submit">
-                        <p>Entrar</p>
+                        <p>Cadastrar</p>
                     </SCSubmitButton>
 
                 </SCWideButton>
                 <SCWideButton>
-                    <p>Primeira vez? Cadastre-se</p>
+                    <p>Já tem uma conta? Entre agora!</p>
                 </SCWideButton>
 
             </SCSignInForm>

@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
 * {
   box-sizing: border-box;
   text-decoration: none;
 }
 body {
   background-color: #E5E5E5;
-  width: 375px;
-  height: 667px;
+  width: 97vw;
+  height: 97vh;
 }
