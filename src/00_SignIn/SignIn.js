@@ -1,76 +1,44 @@
-import axios from 'axios';
+//import axios from 'axios';
 
-//import { Link, useHistory } from 'react-router-dom';
-import React, { useContext, useState } from 'react';
-//import LoggedUserContext from '../contexts/LoggedUserContext';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import UserContext from '../contexts/UserContext.js';
 
 
 import { SCMainContainer, SCLettering, SCSignInForm, SCFormInput, SCWideButton, SCSubmitButton } from "./styles_SignIn.js";
 
 
 export default function SignIn() {
-    //const { userInfo, setUserInfo } = useContext(LoggedUserContext);
-    //const history = useHistory();
-    //const [localData, setLocalData] = useState({ email: "", password: "" });
+    const { userData, setUserData } = useContext(UserContext);
 
-    /*
-    function SignInUser(event) {
+    function userSignIn(event) {
         event.preventDefault();
-        setIsLoading(true);
-        
-        const logInPromise = axios.post(SIGNIN_URL, localData);
-        logInPromise.then(promiseThen);
-        logInPromise.catch(promiseCatch);
-    };
-    */
-    /*
-    function promiseThen(response) {
-        const { id, name, image, email, token } = response.data;
-        setUserInfo({ ...userInfo, id, name, image, email, token });
-        setIsLoading(false);
-        history.push("/habitos");
+        console.log(userData);
+        //const loginPromise = ...
     }
-    function promiseCatch(error) {
-        alert(`Erro ${error.response.status}: ${error.response.data.message}`);
-    }
-    */
+
+
     return (
         <SCMainContainer>
             <SCLettering>
                 <h1>MyWallet</h1>
             </SCLettering>
 
-            <SCSignInForm>
-                <SCFormInput required type="text" placeholder="E-mail" />
-                <SCFormInput required type="password" placeholder="Senha" />
+            <SCSignInForm onSubmit={userSignIn}>
+                <SCFormInput required type="text" placeholder="E-mail" value={userData.email} onChange={(event) => setUserData({ ...userData, email: event.target.value })} />
+                <SCFormInput required type="password" placeholder="Senha" value={userData.password} onChange={(event) => setUserData({ ...userData, password: event.target.value })} />
                 <SCWideButton>
                     <SCSubmitButton type="submit">
                         <p>Entrar</p>
                     </SCSubmitButton>
 
                 </SCWideButton>
-                <SCWideButton>
+                <SCWideButton><Link to="/sign-in">
                     <p>Primeira vez? Cadastre-se</p>
-                </SCWideButton>
+                </Link></SCWideButton>
 
             </SCSignInForm>
 
-
-            {/* <InputField required type="text" placeholder="email" value={localData.email} onChange={(event) => setLocalData({ ...localData, email: event.target.value })} />
-
-                <WideButton>
-                    <SignInButton type="submit" >
-                        <p> Entrar </p>
-                    </SignInButton>
-                </WideButton>
-                <WideButton>
-                    <SignUpButton ><Link to="/cadastro">
-                        <p>
-                            Não tem uma conta? Cadastre-se!
-                        </p>
-                    </Link></SignUpButton>
-                    <h3>{isLoading ? 'loading...' : ""}</h3>
-                </WideButton> */}
         </SCMainContainer>
     );
 }

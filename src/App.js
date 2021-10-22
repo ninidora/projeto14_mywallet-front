@@ -1,7 +1,7 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import React, {useState} from 'react';
 
-// import context from ...
+import UserContext from '../src/contexts/UserContext.js';
 
 import './assets/styles/reset.css';
 import './assets/styles/index.css';
@@ -9,13 +9,15 @@ import './assets/styles/index.css';
 import SignIn from './00_SignIn/SignIn.js';
 import SignUp from './01_SignUp/SignUp.js';
 import Home from './02_Home/Home.js';
+import NewEntry from './03_NewEntry/NewEntry.js';
 
 export default function App() {
+  const [userData, setUserData] = useState({email:"", password:""});
     
   return (
     <BrowserRouter>
       <Switch>
-        {/* <Context.Provider value={{ var, func}} > */}
+        <UserContext.Provider value={{ userData, setUserData}} >
           <Route exact path="/">
             <SignIn />
           </Route>
@@ -28,9 +30,10 @@ export default function App() {
             <Home />
           </Route>
 
-
-    
-        {/* </Context.Provider> */}
+          <Route exact path="/new-entry">
+            <NewEntry />
+          </Route>   
+        </UserContext.Provider>
       </Switch>
     </BrowserRouter>
   );
