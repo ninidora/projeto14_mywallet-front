@@ -53,8 +53,20 @@ const SCFormInput = styled.input`
 const SCWideButton = styled.div`
     display: flex;
     height: 58px;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    
     & p {        
         margin: auto;
+        color: #FFFFFF;
+    }
+
+    & a {
+        text-decoration: none;
+        margin: auto;
+        font-size: 15px;
+        line-height: 18px;
         color: #FFFFFF;
     }
 `;
@@ -65,9 +77,6 @@ const SCSubmitButton = styled.button`
     margin: 0 auto 13px auto;
     border-radius: 5px;
     background-color: #A328D6;
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
-    font-weight: normal;
     font-size: 20px;
     line-height: 23px;
     color: #000000;

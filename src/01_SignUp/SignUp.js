@@ -1,38 +1,13 @@
-import axios from 'axios';
-
-//import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import React, { useContext, useState } from 'react';
-//import LoggedUserContext from '../contexts/LoggedUserContext';
+import {UserContext} from '../services/contexts/UserContext.js';
 
 import { SCMainContainer, SCLettering, SCSignInForm, SCFormInput, SCWideButton, SCSubmitButton } from "../00_SignIn/styles_SignIn.js";
 
 
-export default function SignIn() {
-    //const { userInfo, setUserInfo } = useContext(LoggedUserContext);
-    //const history = useHistory();
-    //const [localData, setLocalData] = useState({ email: "", password: "" });
+export default function SignUp() {
+    const { userData, setUserData } = useContext(UserContext);
 
-    /*
-    function SignInUser(event) {
-        event.preventDefault();
-        setIsLoading(true);
-        
-        const logInPromise = axios.post(SIGNIN_URL, localData);
-        logInPromise.then(promiseThen);
-        logInPromise.catch(promiseCatch);
-    };
-    */
-    /*
-    function promiseThen(response) {
-        const { id, name, image, email, token } = response.data;
-        setUserInfo({ ...userInfo, id, name, image, email, token });
-        setIsLoading(false);
-        history.push("/habitos");
-    }
-    function promiseCatch(error) {
-        alert(`Erro ${error.response.status}: ${error.response.data.message}`);
-    }
-    */
     return (
         <SCMainContainer>
             <SCLettering>
@@ -50,28 +25,11 @@ export default function SignIn() {
                     </SCSubmitButton>
 
                 </SCWideButton>
-                <SCWideButton>
+                <SCWideButton><Link to="/">
                     <p>Já tem uma conta? Entre agora!</p>
-                </SCWideButton>
+                </Link></SCWideButton>
 
             </SCSignInForm>
-
-
-            {/* <InputField required type="text" placeholder="email" value={localData.email} onChange={(event) => setLocalData({ ...localData, email: event.target.value })} />
-
-                <WideButton>
-                    <SignInButton type="submit" >
-                        <p> Entrar </p>
-                    </SignInButton>
-                </WideButton>
-                <WideButton>
-                    <SignUpButton ><Link to="/cadastro">
-                        <p>
-                            Não tem uma conta? Cadastre-se!
-                        </p>
-                    </Link></SignUpButton>
-                    <h3>{isLoading ? 'loading...' : ""}</h3>
-                </WideButton> */}
         </SCMainContainer>
     );
 }

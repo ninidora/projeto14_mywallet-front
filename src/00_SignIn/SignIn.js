@@ -1,8 +1,8 @@
-//import axios from 'axios';
-
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import UserContext from '../contexts/UserContext.js';
+import {UserContext} from '../services/contexts/UserContext.js';
+
+import { login } from "../services/api/Api.js";
 
 
 import { SCMainContainer, SCLettering, SCSignInForm, SCFormInput, SCWideButton, SCSubmitButton } from "./styles_SignIn.js";
@@ -13,10 +13,12 @@ export default function SignIn() {
 
     function userSignIn(event) {
         event.preventDefault();
-        console.log(userData);
-        //const loginPromise = ...
-    }
+        const loginPromise = login(userData);
 
+        loginPromise
+            .then((res) => console.log(res))
+            .catch(alert);
+    }
 
     return (
         <SCMainContainer>
@@ -33,7 +35,7 @@ export default function SignIn() {
                     </SCSubmitButton>
 
                 </SCWideButton>
-                <SCWideButton><Link to="/sign-in">
+                <SCWideButton><Link to="/sign-up">
                     <p>Primeira vez? Cadastre-se</p>
                 </Link></SCWideButton>
 

@@ -1,7 +1,7 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import React, {useState} from 'react';
 
-import UserContext from '../src/contexts/UserContext.js';
+import { UserContext } from './services/contexts/UserContext.js';
 
 import './assets/styles/reset.css';
 import './assets/styles/index.css';
@@ -13,7 +13,7 @@ import NewEntry from './03_NewEntry/NewEntry.js';
 
 export default function App() {
   const [userData, setUserData] = useState({email:"", password:""});
-    
+      
   return (
     <BrowserRouter>
       <Switch>
