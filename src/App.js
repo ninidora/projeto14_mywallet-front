@@ -12,12 +12,12 @@ import Home from './02_Home/Home.js';
 import NewEntry from './03_NewEntry/NewEntry.js';
 
 export default function App() {
-  const [userData, setUserData] = useState({email:"", password:""});
+  const [userToken, setUserToken] = useState("");
       
   return (
     <BrowserRouter>
       <Switch>
-        <UserContext.Provider value={{ userData, setUserData}} >
+        <UserContext.Provider value={{ userToken, setUserToken}} >
           <Route exact path="/">
             <SignIn />
           </Route>

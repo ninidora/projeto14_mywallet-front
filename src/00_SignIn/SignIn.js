@@ -1,27 +1,36 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import {UserContext} from '../services/contexts/UserContext.js';
 
 import { login } from "../services/api/Api.js";
-
 
 import { SCMainContainer, SCLettering, SCSignInForm, SCFormInput, SCWideButton, SCSubmitButton } from "./styles_SignIn.js";
 
 
 export default function SignIn() {
-    const { userData, setUserData } = useContext(UserContext);
+    const [userData, setUserData] = useState({email:"", password:""});
+    const { userToken, setUserToken } = useContext(UserContext);
+    
+    const history = useHistory();
 
+    /*
+    useEffect(() =>{
+        if(userToken !== "") {
+            alert(userToken);
+        }
+    }, []);
+    */
     function userSignIn(event) {
         event.preventDefault();
         const loginPromise = login(userData);
-
         loginPromise
-            .then((res) => console.log(res))
+            .then((res) => setUserToken(res.data))
             .catch(alert);
     }
 
     return (
         <SCMainContainer>
+            {/* {console.log(">> :", userToken)} */}
             <SCLettering>
                 <h1>MyWallet</h1>
             </SCLettering>
@@ -33,14 +42,13 @@ export default function SignIn() {
                     <SCSubmitButton type="submit">
                         <p>Entrar</p>
                     </SCSubmitButton>
-
                 </SCWideButton>
+                
                 <SCWideButton><Link to="/sign-up">
                     <p>Primeira vez? Cadastre-se</p>
                 </Link></SCWideButton>
 
             </SCSignInForm>
-
         </SCMainContainer>
     );
 }
