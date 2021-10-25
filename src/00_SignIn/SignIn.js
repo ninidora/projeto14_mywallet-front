@@ -13,13 +13,12 @@ export default function SignIn() {
     
     const history = useHistory();
 
-    /*
     useEffect(() =>{
         if(userToken !== "") {
-            alert(userToken);
+            history.push("/home");
         }
-    }, []);
-    */
+    }, [userToken]);
+    
     function userSignIn(event) {
         event.preventDefault();
         const loginPromise = login(userData);
