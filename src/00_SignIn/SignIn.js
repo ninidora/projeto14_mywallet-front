@@ -29,7 +29,7 @@ export default function SignIn() {
 
     return (
         <SCMainContainer>
-            {/* {console.log(">> :", userToken)} */}
+            
             <SCLettering>
                 <h1>MyWallet</h1>
             </SCLettering>

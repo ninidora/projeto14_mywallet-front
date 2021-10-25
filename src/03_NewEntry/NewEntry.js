@@ -1,11 +1,10 @@
-import axios from 'axios';
+import React from 'react';
 
-import React, { useContext, useState } from 'react';
+import { SCMainContainer, SCSubmitButton } from "../00_SignIn/styles_SignIn.js";
+import { SCHeader, SCContent } from "../02_Home/styles_Home.js";
+import { SCNewTransaction, SCNewValue, SCSubmitNewEntry} from "./styles_NewEntry.js";
 
-import { SCMainContainer } from "../00_SignIn/styles_SignIn.js";
-import { SCHeader, SCContent, SCInOutReport, SCCredit, SCDebit, SCBalance, SCNewEntries, SCNewEntry } from "../02_Home/styles_Home.js";
-
-export default function Home() {
+export default function NewEntry() {
 
     return (
         <SCMainContainer>
@@ -14,55 +13,17 @@ export default function Home() {
                 
             </SCHeader>
             <SCContent>
-                <SCInOutReport>
-                    <SCCredit>
-                        <p> DD-MM </p>
-                        <p> _ description _ </p>
-                        <p> amount </p>
-                    </SCCredit>
-                    <SCDebit>
-                        <p> DD-MM </p>
-                        <p> _ description _ </p>
-                        <p> amount </p>
-                    </SCDebit>
-                    <SCCredit>
-                        <p> DD-MM </p>
-                        <p> _ description _ </p>
-                        <p> amount </p>
-                    </SCCredit>
-                    <SCCredit>
-                        <p> DD-MM </p>
-                        <p> _ description _ </p>
-                        <p> amount </p>
-                    </SCCredit>
-                    <SCDebit>
-                        <p> DD-MM </p>
-                        <p> _ description _ </p>
-                        <p> amount </p>
-                    </SCDebit>
+                <SCNewTransaction>
+                <SCNewValue required type="text" placeholder="Valor" onChange={(event) => console.log(event.target.value)} />
+                <SCNewValue required type="text" placeholder="Descrição" onChange={(event) => console.log(event.target.value)} />
+               <SCSubmitNewEntry>
+                    <SCSubmitButton type="submit">
+                        <p>Salvar "entrada/saída"</p>
+                    </SCSubmitButton>
+                </SCSubmitNewEntry>
                 
-                <SCBalance>
-                    <h1> SALDO </h1>
-                    <p>348,12</p>
-                </SCBalance>
-                </SCInOutReport>
-                <SCNewEntries>
-                    <SCNewEntry>
-                        
-                        <p>Nova Entrada</p>
-                    </SCNewEntry>
-                    <SCNewEntry>
-                         <p>Nova Saída</p>
-
-                    </SCNewEntry>
-
-                </SCNewEntries>
-
+            </SCNewTransaction>               
             </SCContent>
-
-
-
-
         </SCMainContainer>
     );
 }

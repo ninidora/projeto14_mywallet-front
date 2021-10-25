@@ -41,18 +41,11 @@ const SCInOutReport = styled.ul`
     background-color: #FFFFFF;
 `;
 
-const SCCredit = styled.li`
+const SCListEntry = styled.li`
     width: 90%;
     height: 20px;
     display: flex;
-    color: #03AC00;
-`;
-
-const SCDebit = styled.li`
-    width: 90%;
-    height: 20px;
-    display: flex;
-    color: #C70000;
+    color: ${props =>( props.amount >= 0 ? '#03AC00' : '#C70000')};
 `;
 
 const SCBalance = styled.div`
@@ -86,4 +79,4 @@ const SCNewEntry = styled.div`
 `;
 
 
-export { SCHeader, SCContent, SCInOutReport, SCCredit, SCDebit, SCBalance, SCNewEntries, SCNewEntry };
+export { SCHeader, SCContent, SCInOutReport, SCListEntry, SCBalance, SCNewEntries, SCNewEntry };
